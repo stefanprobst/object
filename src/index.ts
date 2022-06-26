@@ -18,3 +18,5 @@ type Entries<T> = Array<
 >
 
 export const entries = Object.entries as <T extends object>(obj: T) => Entries<T>
+
+export const hasOwn = Object.hasOwn as <T extends object, K extends PropertyKey>(obj: T, key: K) => obj is T & Record<K, unknown>
