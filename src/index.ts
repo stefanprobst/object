@@ -19,4 +19,8 @@ type Entries<T> = Array<
 
 export const entries = Object.entries as <T extends object>(obj: T) => Entries<T>
 
+export const fromEntries = Object.fromEntries as <T extends object, V>(
+  entries: Iterable<readonly [keyof T, V]>,
+) => { [K in keyof T]: V };
+
 export const hasOwn = Object.hasOwn as <T extends object, K extends PropertyKey>(obj: T, key: K) => obj is T & Record<K, unknown>
